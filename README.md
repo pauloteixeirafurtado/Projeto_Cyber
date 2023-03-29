@@ -93,8 +93,6 @@ sudo nano /etc/snmp/snmpd.conf</code></pre>
 <pre>
 <code>sudo service snmpd restart</code></pre>
 
-<p>&nbsp;</p>
-
 <p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Client/Installing agent</span></span></span></p>
 
 <pre>
@@ -104,10 +102,37 @@ sudo nano /etc/snmp/snmpd.conf</code></pre>
 <code>sudo nano /etc/snmp/snmpd.conf</code></pre>
 
 <pre>
-<code>agentAddress udp:161
-
+<code class="language-markdown">agentAddress udp:161
 rocommunity public 10.0.0.13 //Tag the other rocommunities</code></pre>
 
 <pre>
-<code>
-sudo service snmpd restart</code></pre>
+<code class="language-bash">sudo service snmpd restart</code></pre>
+
+<p>&nbsp;</p>
+
+<h1><span style="font-size:22px"><span style="font-family:Courier New,Courier,monospace">Syslog</span></span></h1>
+
+<p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Server</span></span></span></p>
+
+<p>Download ManageEngine Eventviewer</p>
+
+<p>Start service</p>
+
+<pre>
+<code class="language-bash">service eventloganalyzer start </code></pre>
+
+<p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Client</span></span></span></p>
+
+<pre>
+<code class="language-bash">sudo apt-get install rsyslog</code></pre>
+
+<pre>
+<code class="language-bash">nano /etc/rsyslog.conf </code></pre>
+
+<pre>
+<code class="language-markdown">*.* @&lt;ip&gt;:514</code></pre>
+
+<pre>
+<code class="language-bash">systemctl restart rsyslog</code></pre>
+
+<p>&nbsp;</p>
