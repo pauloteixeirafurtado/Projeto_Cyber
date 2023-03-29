@@ -1,112 +1,67 @@
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Logins</span></span></span></p>
+<p><span style="font-family:Courier New,Courier,monospace">All resourses created in AWS through Terraform(<a href="https://github.com/jdmedeiros/security-onion">https://github.com/jdmedeiros/security-onion</a>)</span></p>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Kali:</span></span></span></p>
+<h1><span style="font-family:Courier New,Courier,monospace"><span style="font-size:22px"><strong><span style="color:#000000">Logins</span></strong></span></span></h1>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">User: kali</span></span></span></p>
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+	<tbody>
+		<tr>
+			<td><span style="font-family:Courier New,Courier,monospace">Instance</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">Username</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">Password</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:Courier New,Courier,monospace">Kali</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">kali</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">Passw0rd</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:Courier New,Courier,monospace">Sift</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">sansforensics</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">forensics</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:Courier New,Courier,monospace">REMnux</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">remnux</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">malware</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:Courier New,Courier,monospace">Onion</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">ubuntu</span></td>
+			<td><span style="font-family:Courier New,Courier,monospace">Passw0rd</span></td>
+		</tr>
+	</tbody>
+</table>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Password: Passw0rd</span></span></span></p>
+<h1><span style="font-family:Courier New,Courier,monospace"><span style="font-size:22px"><strong><span style="color:#000000">FTP</span></strong></span></span></h1>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Sift:</span></span></span></p>
+<h2><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Server</span></span></span></h2>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">User:</span></span></span></p>
+<pre>
+<code class="language-bash">sudo apt-get update
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Password:</span></span></span></p>
+sudo apt-get -y upgrade
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">REMnux:</span></span></span></p>
+sudo nano /etc/vsftpd.conf</code></pre>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">User:</span></span></span></p>
+<h2 style="margin-left:48px"><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Create user and password.</span></span></span></h2>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Password:</span></span></span></p>
+<h2 style="margin-left:48px"><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Create dir for user and change its ownership</span></span></span></h2>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Onion:</span></span></span></p>
+<pre>
+<code class="language-markdown">chroot_local_user=YES
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">User:</span></span></span></p>
+allow_writeable_chroot=YES
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Password:</span></span></span></p>
+pasv_enable=YES
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">FTP</span></span></span></p>
+pasv_min_port=1024
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Server:</span></span></span></p>
+pasv_max_port=1048
 
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get update &amp;&amp; sudo apt-get -y upgrade</span></span></span></p>
+write_enable=YES</code></pre>
 
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo nano /etc/vsftpd.conf /etc/vsftpd.conf</span></span></span></p>
+<p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Client:</span></span></span></p>
 
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Create user and password</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Create dir for user and change it&rsquo;s ownership</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Client:</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Server configuration:</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">chroot_local_user=YES</span></span></span></p>
-
-<p><br />
-&nbsp;</p>
-
-<p style="margin-left:96px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">allow_writeable_chroot=YES</span></span></span></p>
-
-<p style="margin-left:96px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">pasv_enable=YES</span></span></span></p>
-
-<p style="margin-left:96px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">pasv_min_port=1024</span></span></span></p>
-
-<p style="margin-left:96px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">pasv_max_port=1048</span></span></span></p>
-
-<p style="margin-left:96px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">write_enable=YES</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">MIB/SNMP</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get update</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get install snmp-mibs-downloader</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get install snmp</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo systemctl restart snmpd</span></span></span></p>
-
-<p><br />
-<br />
-&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"><img src="https://lh4.googleusercontent.com/9gUjY20McsX0aiz--p8b9mxpxMjdGishmT6vf07FndsMRc4CTofs1hHvLMhMqRwko0obiuhYcq9khN3p3jsDrInbRGUxhgMpL1yCnZU48d3xUq5BqS2USe40e7lgg6EtR8VdY1SV5bycF1d2TVVBqeI" style="height:296px; width:624px" /></span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Syslog</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Server configuration</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get update</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get install rsyslog</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo nano /etc/rsyslog.conf</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Client configuration</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get update</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo apt-get install rsyslog</span></span></span></p>
-
-<p style="margin-left:48px"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo nano /etc/rsyslog.conf</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">*.* &nbsp; @remote-syslog-server:port</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo service rsyslog restart</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Testing</span></span></span></p>
-
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">sudo tail -f /var/log/syslog</span></span></span></p>
+<p><span style="font-family:Courier New,Courier,monospace">No addiotal configuration required.</span></p>
 
 <p>&nbsp;</p>
