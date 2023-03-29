@@ -43,10 +43,6 @@ sudo apt-get -y upgrade
 
 sudo nano /etc/vsftpd.conf</code></pre>
 
-<h2 style="margin-left:48px"><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Create user and password.</span></span></span></h2>
-
-<h2 style="margin-left:48px"><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Create dir for user and change its ownership</span></span></span></h2>
-
 <pre>
 <code class="language-markdown">chroot_local_user=YES
 
@@ -60,8 +56,58 @@ pasv_max_port=1048
 
 write_enable=YES</code></pre>
 
-<p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Client:</span></span></span></p>
+<p><span style="font-family:Courier New,Courier,monospace">Create a user with a password.</span></p>
 
-<p><span style="font-family:Courier New,Courier,monospace">No addiotal configuration required.</span></p>
+<p><span style="font-family:Courier New,Courier,monospace">Create a shared directory for the user.</span></p>
+
+<pre>
+<code class="language-bash">sudo mkdir /home/&lt;user&gt;/&lt;folder&gt;</code></pre>
+
+<p><span style="font-family:Courier New,Courier,monospace">Change it&#39;s ownership</span></p>
+
+<pre>
+<code class="language-bash">sudo chmod a-w /home/&lt;user&gt;/&lt;folder&gt;</code></pre>
 
 <p>&nbsp;</p>
+
+<h2><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Client</span></span></span></h2>
+
+<p><span style="font-family:Courier New,Courier,monospace">Using filezilla, add a new connection and make sure that transfer mode is in passive.</span></p>
+
+<p>&nbsp;</p>
+
+<h1><span style="font-size:22px"><strong><span style="font-family:Courier New,Courier,monospace">MIB and SNMP</span></strong></span></h1>
+
+<p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Server</span></span></span></p>
+
+<pre>
+<code class="language-bash">sudo apt-get update
+
+sudo apt-get install snmpd
+
+sudo nano /etc/snmp/snmpd.conf</code></pre>
+
+<pre>
+<code class="language-markdown">agentAddress udp:161,udp6:[::1]:161</code></pre>
+
+<pre>
+<code>sudo service snmpd restart</code></pre>
+
+<p>&nbsp;</p>
+
+<p><span style="font-family:Courier New,Courier,monospace"><span style="font-size:11pt"><span style="color:#000000">Client/Installing agent</span></span></span></p>
+
+<pre>
+<code>sudo apt install snmpd snmp libsnmp-dev</code></pre>
+
+<pre>
+<code>sudo nano /etc/snmp/snmpd.conf</code></pre>
+
+<pre>
+<code>agentAddress udp:161
+
+rocommunity public 10.0.0.13 //Tag the other rocommunities</code></pre>
+
+<pre>
+<code>
+sudo service snmpd restart</code></pre>
