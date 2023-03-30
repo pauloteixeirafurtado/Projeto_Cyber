@@ -209,6 +209,8 @@ server master iburst</code></pre>
 #sourcedir /etc/chrony/sources.d
 #leapsectz right/UTC</code></pre>
 
+<p>&nbsp;Troubleshooting</p>
+
 <pre>
 <code class="language-bash">timedatectl set-ntp true
 sudo systemctl restart chrony</code></pre>
