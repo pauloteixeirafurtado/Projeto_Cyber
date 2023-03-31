@@ -112,7 +112,7 @@ rocommunity public 10.0.0.13 //Tag the other rocommunities</code></pre>
 <pre>
 <code class="language-bash">sudo service snmpd restart</code></pre>
 
-<p>&nbsp;</p>
+<p><img src="https://ckeditor.com/apps/ckfinder/userfiles/files/New%20Project.png" style="height:881px; width:1868px" /></p>
 
 <h1><span style="font-size:22px"><span style="font-family:Courier New,Courier,monospace">Syslog</span></span></h1>
 
